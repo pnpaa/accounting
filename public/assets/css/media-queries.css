@@ -1,0 +1,118 @@
+/*imports*/
+/*@import url("bootstrap.css");
+@import url("style.css");
+@import url("comparison.css");
+@import url("header-component.css");
+@import url("component.css");
+@import url("new-header-css.css");
+@import url("table.css"); */
+/* @import url("data_tables.css"); */
+
+
+/*@media sizes*/
+@media (min-width: 1920px) {
+/*	html { border:10px solid brown;}*/
+	/*** content css below ***/
+
+
+}
+@media (min-width: 1200px) and (max-width: 1919px) {
+/*	html { border:10px solid red;}*/
+	/*** content css below ***/
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+/*	html { border:10px solid blue; }*/
+	/*** content css below ***/
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+/*	html { border:10px solid green; }*/
+	/*** content css below ***/
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+/*	html { border:10px solid yellow; }*/
+	/*** content css below ***/
+
+}
+
+@media screen and (max-width: 600px) {
+/*	html { border:10px solid pink; }*/
+	/*** content css below ***/
+
+}
+
+@media screen and (max-width: 400px) {
+/*	html { border:10px solid violet; }*/
+	/*** content css below ***/
+
+}
+
+@media screen and (max-width: 320px) {
+/*	html { border:10px solid maroon; }*/
+	/*** content css below ***/
+
+}
+
+
+/* header part */
+@media only screen and (max-width: 990px) {
+html { /* border:10px solid brown; */}
+	/*** content css below ***/
+
+
+
+}
+@media only screen and (max-width: 1195px) {
+html { /* border:10px solid red; */}
+	/*** content css below ***/
+
+
+
+
+}
+
+@media only screen and (max-width: 1493px) {
+html { /* border:10px solid red; */}
+
+
+}
+
+@media only screen and (max-width: 1057px) {
+html { /* border:10px solid red; */}
+	/*** content css below ***/
+
+
+
+}
+
+@media only screen and (max-width: 775px) {
+html { /* border:10px solid green; */}
+
+
+
+}
+
+@media (min-width: 775px) and (max-width: 991px) {
+/* html { border:10px solid green;} */
+
+
+
+
+}
+
+ @media (min-width: 0px) and (max-width:774px) {
+/* html { border:10px solid red;}
+	  */
+
+
+
+
+}
+
+
+
