@@ -1,0 +1,49 @@
+.o-hidden{	overflow: hidden ;}
+.bg-E6E6E6{	background-color: #E6E6E6;}
+.social-contact >li {display: inline-block;margin-bottom: 10px;border: 1px solid #fff;padding: 5px;border-radius: 5px !important}
+.social-contact >li:hover{display: inline-block;margin-bottom: 10px;border: 1px solid #1CAF9A;padding: 5px;border-radius: 5px !important;background-color: #FFF}
+.directory-list >li  {display: inline-block;margin-bottom: 10px;border: 1px solid #fff;padding: 5px;border-radius: 5px !important;background-color: #E6E6E6;}
+.directory-list,.social-contact {list-style-type: none;padding: 0;margin: 0;}
+.mini-photo {border-radius: 5px;-webkit-border-radius: 5px;height: auto;width: 175px;height: 175px;margin-right: 10px;}
+.user-photo{width: 100% !important;}
+.user_photo{width: 40px !important;height: 40px !important;}
+.mr-10{margin-right: 10px;}
+.f-12{font-size: 12px;}
+.p-0{padding: 0px !important;}
+.p-20{padding: 20px;}
+.pb-50{padding-bottom: 50px;}
+.pb-20{padding-bottom: 20px;}
+.pt-25{padding-top: 25px;}
+.pt-50{padding-top: 50px;}
+.pr-40{padding-right: 40px;}
+.receipt{background-color: #f7f7f7;}
+#tasks_completed>div.task-item>div.task-footer{background: #2ccd96 !important;color: #fff;}
+/*div.dashboard-stat>div.visual>.fa:hover{transition-dealy:400; font-size:130px !important; }*/
+div#event-categories>div.update-category {padding: 5px;margin: 5px;}
+.update-category{background-color: #edeef0;}
+.mix-inner{border: 1px solid #e5e5e5; }
+.img-thumbnail-2 {
+display: inline-block;
+width: 100% \9;
+height: auto;
+padding: 4px;
+line-height: 1.42857143;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 4px;
+-webkit-transition: all .2s ease-in-out;
+-o-transition: all .2s ease-in-out;
+transition: all .2s ease-in-out;
+}
+ul.users-list{	list-style: none; }
+ul.users-list li img{	width: 100px;height: 100px; }
+ul.users-list li{padding-bottom: 20px;}
+ul.users-list li div.row{margin-left: -55px; padding-bottom: 20px; background-color: #F3F3F3;}
+.users-list-photo{padding: 20px 40px 20px 20px !important;}
+.carousel-inner-2{overflow: inherit !important;}
+.dashboard-stat { margin-bottom: 0px !important;overflow: hidden;}
+ul.thread-replies{list-style: none;}
+.mail-checkbox,.checker{width: 17px;height: 17px;border:1px solid #2d2d2d;background-color: #fff; margin: 0px 0px 0px 5px !important;}
+.selected{background-color: #16987e !important;}
+.trans-checkbox,.trans-checkbox-control{width: 20px;height: 20px;background-color: #fff;border: 1px solid #cecece;}
+ul.page-sidebar-menu-hover-submenu{padding-top: 30px !important;}
