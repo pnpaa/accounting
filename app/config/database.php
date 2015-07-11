@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'mysql.hostinger.ph',
-			'database'  => 'u411505508_actg',
-			'username'  => 'u411505508_actg',
-			'password'  => 'zYM4DYToeVPXcz4leg',
+			'host'      => 'localhost',
+			'database'  => 'pnpaa',
+			'username'  => 'root',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
