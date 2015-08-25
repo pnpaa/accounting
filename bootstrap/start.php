@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('dev-intern','suckerbhordz'),
+	'local' => array('dev-intern','suckerbhordz','Dell-E6430'),
 
 ));
 

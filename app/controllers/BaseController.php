@@ -1,7 +1,4 @@
 <?php
-
-// @include ('Interface.php');
-
 class BaseController extends Controller {
 
 	/**

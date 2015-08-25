@@ -19,7 +19,8 @@ class TaskController extends \BaseController {
 
 	public function index()
 	{
-		 		 return View::make('tasks.index')->with('users',$this->user->get())->with('tasks',$this->task->belongsToUser()->whereIs_archived(0)->get() )->with('my_tasks',$this->task->myTask()->whereIs_archived(0)->get());
+
+    	 return View::make('tasks.index')->with('users',$this->user->get())->with('tasks',$this->task->belongsToUser()->whereIs_archived(0)->get() )->with('my_tasks',$this->task->myTask()->whereIs_archived(0)->get());
 
 	}
 

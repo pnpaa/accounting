@@ -53,7 +53,7 @@ Route::group(['before' => 'auth'],function()
     Route::resource('folder','FolderController');
     Route::resource('mail','MailController');
     Route::controller('mailler','MailController');
-    Route::post('get-updates','UpdatesController@getUpdates');
+     Route::post('get-updates','UpdatesController@getUpdates');
     Route::post('set-update','UpdatesController@update');
 });
 

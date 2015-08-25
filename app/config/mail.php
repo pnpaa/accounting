@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'asasdev@asas.com', 'name' => 'asas dev'),
+	'from' => array('address' => 'info.pnpaa@gmail.com', 'name' => 'PNPAA'),
 
 	/*
 	|--------------------------------------------------------------------------

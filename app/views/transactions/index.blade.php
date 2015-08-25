@@ -65,8 +65,11 @@
         <table class="table table-striped table-bordered table-hover" id="transactions_table">
           <thead>
             <tr>
+            <th>
+                Transaction number
+            </th>
               <th>
-                Transaction Date
+                  Transaction for the month of
               </th>
               <th>
                 User
@@ -85,7 +88,8 @@
           <tbody>
             @foreach($transactions as $transaction)
             <tr>
-              <td>{{{dateMonth($transaction->transaction_date)}}}</td>
+            <td>{{$transaction->transaction_number}}</td>
+              <td>{{{date_format(new DateTime($transaction->transaction_date),'M Y')}}}</td>
               <td>{{{getUserName($transaction->user_id,true)}}}</td>
               <td>{{{getUserName($transaction->transaction_setter,true)}}}</td>
               <td>{{{$transaction->transaction_purpose}}}</td>

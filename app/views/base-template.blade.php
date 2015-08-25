@@ -1,9 +1,4 @@
-<?php
-// require_once('C:\xampp\htdocs\pnpaa\public\iflychat\iflychat_api_settings.php');
-// require_once('C:\xampp\htdocs\pnpaa\public\iflychat\iflychat_api.php');
-// $iflychat = new iFlyChat($iflychat_settings);
-// $ifly_html_code = $iflychat->get_html_code();
-?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

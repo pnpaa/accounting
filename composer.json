@@ -17,6 +17,8 @@
 		],
 		"files":[
             "app/helper/core-helper.php",
+            "app/helper/clockwork.php",
+            "app/helper/class-ClockworkException.php",
             "app/helper/recaptchalib-helper.php"
 		],
 		"psr-4":{

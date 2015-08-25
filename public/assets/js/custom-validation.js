@@ -1,4 +1,10 @@
-
+    // For Masking
+        $.mask.definitions['9'] = '';
+        $.mask.definitions['n'] = '[0-9]';
+        $("input.phone").mask("nnn-nnnn-nnn");
+        $("input.phonesimple").mask("nnnn-nnn-nnnn");
+        $("input.telephone").mask("(nnn) nnnn-nnn");
+        $("input.date").mask("nn/nn/nnnn");
 
         $("#create-bulk-user").validate({
 
@@ -346,3 +352,66 @@
         },
         "Invalid Date."
      );
+
+
+        $("#receive-amount").validate({
+
+        errorElement: "span",
+        rules: {
+            cashier_id: {
+                required: true,
+
+            },
+            amount: {
+                required: true,
+
+            }
+
+        },
+        errorPlacement: function (error, element) {
+            element.parent('div').addClass('has-error');
+            error.insertAfter(element);
+            element.next('span').addClass('help-block');
+        },
+        unhighlight: function (element) {
+            $(element).parent().removeClass("has-error");
+        },
+        highlight: function (element) {
+            $(element).parent().addClass("has-error");
+        },
+        messages: {
+
+        }
+
+    });
+
+        $("#forward-amount").validate({
+
+        errorElement: "span",
+        rules: {
+            pn_staff: {
+                required: true,
+
+            },
+            amount: {
+                required: true,
+
+            }
+
+        },
+        errorPlacement: function (error, element) {
+            element.parent('div').addClass('has-error');
+            error.insertAfter(element);
+            element.next('span').addClass('help-block');
+        },
+        unhighlight: function (element) {
+            $(element).parent().removeClass("has-error");
+        },
+        highlight: function (element) {
+            $(element).parent().addClass("has-error");
+        },
+        messages: {
+
+        }
+
+    });

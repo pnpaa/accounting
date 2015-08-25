@@ -22,9 +22,11 @@
 <!-- END PAGE HEADER-->
 <!-- BEGIN PAGE CONTENT-->
 <div ng-app="timeLineApp" >
+   @if(Auth::user()->role == 1)
    <label for="">Legend:</label><br>
-  <label for="" style="color:#555555"><i class="fa fa-briefcase"></i> Transaction made by an admin  </label><br>
-  <label for="" style="color:#4b8df8"><i class="fa fa-gears"></i> User payment to a specific cashier</label>
+   <label for="" style="color:#555555"><i class="fa fa-briefcase"></i> Transaction made by an admin  </label><br>
+   <label for="" style="color:#4b8df8"><i class="fa fa-gears"></i> User payment to a specific cashier</label>
+ @endif
  <div class="col-md-12"  id="timeline-list" ng-controller="timeLineController" data-ng-init="loop()">
   <div class="col-md-4 col-md-offset-8">
     <input class="search form-control stretchRight" placeholder="Search " />
@@ -54,7 +56,7 @@
 
       <div class="timeline-time" style="width: 16%;">
         <span class="date">
-        <span class="time">
+        <span class="time" style="font-size:18px;">
         {{{dateMonth($t->transaction_date)}}}</span>
        <?php
              date_default_timezone_set('UTC');

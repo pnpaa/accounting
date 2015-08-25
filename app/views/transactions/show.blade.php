@@ -9,6 +9,8 @@
 {{HTML::style('assets/dashboard/global/plugins/bootstrap-datepicker/css/datepicker.css')}}
 {{HTML::style('assets/dashboard/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')}}
 {{HTML::style('assets/dashboard/admin/pages/css/portfolio.css')}}
+{{HTML::style('assets/dashboard/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css')}}
+
 @stop
 
 @section('content')
@@ -27,31 +29,41 @@
           </li>
         </ul>
 
-    <!--     <div class="page-toolbar">
-          <div class="btn-group pull-right">
-            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-            Actions <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-              <li>
-                <a href="#">Action</a>
-              </li>
-              <li>
-                <a href="#">Another action</a>
-              </li>
-              <li>
-                <a href="#">Something else here</a>
-              </li>
-              <li class="divider">
-              </li>
-              <li>
-                <a href="#">Separated link</a>
-              </li>
-            </ul>
-          </div>
-        </div> -->
+
       </div>
       <div class="row">
+        <table class="table" id="transactions-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>OR Number</th>
+              <th>Payee</th>
+              <th>Cashier</th>
+              <th>For the month of</th>
+              <th>Purpose</th>
+              <th>Amount</th>
+              <th>Total</th>
+              <th>Recorded By</th>
+            </tr>
+          </thead>
+          <tbody>
+           @foreach ($transactions as $transaction)
+            <tr>
+              <td>{{{ dateMonth($transaction->transaction_date)  }}} </td>
+              <td>{{$transaction->or_number}}</td>
+              <td>{{{getUserName($transaction->user_id,true)}}}</td>
+              <td>{{{getUserName($transaction->transaction_setter,true)}}} </td>
+              <td>{{{  date_format(new DateTime($transaction->transaction_date),'M Y') }}} </td>
+              <td>{{{$transaction->transaction_purpose}}}</td>
+              <td>{{{$transaction->transaction_amount}}}</td>
+              <td>{{{$transaction->transaction_amount}}}</td>
+              <td>{{{getUserName($transaction->transaction_setter,true)}}}</td>
+            </tr>
+           @endforeach
+          </tbody>
+        </table>
+      </div>
+    {{--<div class="row">
       	<div class="col-md-12">
       		 <h4>Filter By: </h4>
            <form action="{{URL::to('transactions/filter')}}" method="post" accept-charset="utf-8">
@@ -117,7 +129,7 @@
                                 </div>
                                 <div class="col-md-12">
                                   <p class="payee">Payee : {{{getUserName($transaction->user_id,true)}}} </p>
-                                  <p class="received-from">Recieved From : {{{getUserName($transaction->transaction_setter,true)}}} </p>
+                                  <p class="received-from">Received From : {{{getUserName($transaction->transaction_setter,true)}}} </p>
                                   <p>For : {{{ dateMonth($transaction->transaction_date)}}} </p>
                                 </div>
                                 <div class="col-md-12">
@@ -157,10 +169,14 @@
 											</div>
           </div>
       	</div>
-      </div>
+      </div>--}}
 
 @stop
 @section('script')
+
+{{ HTML::script('assets/dashboard/global/plugins/datatables/media/js/jquery.dataTables.min.js') }}
+{{ HTML::script('assets/dashboard/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js') }}
+
 {{ HTML::script('assets/dashboard/global/plugins/jquery-mixitup/jquery.mixitup.min.js') }}
 {{ HTML::script('assets/dashboard/global/plugins/fancybox/source/jquery.fancybox.pack.js') }}
 {{ HTML::script('assets/dashboard/global/plugins/select2/select2.min.js') }}
@@ -179,6 +195,7 @@ jQuery(document).ready(function() {
    Layout.init(); // init current layout
    ComponentsDropdowns.init();
    // ComponentsPickers.init();
+    $('#transactions-table').dataTable();
  if (jQuery().datepicker) {
             $('.date-picker').datepicker({
                 rtl: Metronic.isRTL(),
@@ -189,6 +206,7 @@ jQuery(document).ready(function() {
         }
 
    $('.mix-grid').mixitup();
+
 });
 </script>
 @stop

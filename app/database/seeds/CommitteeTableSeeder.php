@@ -4,8 +4,8 @@ class CommitteeTableSeeder extends Seeder {
 	public function run()
 	{
 	     Committee::create([
-			'committee_title' => 'Fianance',
-			'committee_content' => 'Fianance'
+			'committee_title' => 'Finance',
+			'committee_content' => 'Finance'
 		 ]);
 		 Committee::create([
 			'committee_title' => 'Environment',

@@ -12,7 +12,7 @@
   <form   action="verify-question" method="post">
     {{Form::token()}}
 
-    <h3>Security Guard</h3>
+    <h3>Security Question</h3>
     <p>
       Verify your Identity
     </p>

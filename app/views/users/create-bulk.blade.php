@@ -50,7 +50,7 @@
                   <select name="users_committee" class="form-control">
                        <option value="0">none</option>
                     @foreach ($committees as $committee)
-                       <option value="{{$committee->id}}">{{$committee->committee_name}}</option>
+                       <option value="{{$committee->id}}">{{$committee->committee_title}}</option>
                     @endforeach
                   </select>
                 </div>

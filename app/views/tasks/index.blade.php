@@ -145,7 +145,7 @@
                                             <div class="task-content"><p>{{{$task->task_content}}}</p></div>
                                              <h4 class="pull-right task-assign"><span class="label label-primary" data-user="{{{$task->task_assign}}}">{{{getUserName($task->task_assign,true)}}}</span></h4>
                                             <div class="task-footer">
-                                                <div class="pull-left task-due" data-date="{{{$task->task_due}}}"><span class="fa fa-clock-o"></span> {{{dateTime($task->task_due,true)}}}</div>
+                                                <div class="pull-left task-due" data-date="{{{$task->task_due}}}"><span class="fa fa-clock-o"></span> {{{dateMonth($task->task_due,true)}}}</div>
                                             </div>
                                         </div>
                                      @endif
@@ -162,7 +162,7 @@
                                             <div class="task-content"><p>{{{$task->task_content}}}</p></div>
                                              <h4 class="pull-right task-assign"><span class="label label-primary" data-user="{{{$task->task_assign}}}">{{{getUserName($task->task_assign,true)}}}</span></h4>
                                             <div class="task-footer">
-                                                <div class="pull-left task-due" data-date="{{{$task->task_due}}}"><span class="fa fa-clock-o"></span> {{{dateTime($task->task_due,true)}}}</div>
+                                                <div class="pull-left task-due" data-date="{{{$task->task_due}}}"><span class="fa fa-clock-o"></span> {{{dateMonth($task->task_due,true)}}}</div>
                                             </div>
                                         </div>
                                      @endif
@@ -173,7 +173,24 @@
                             <div class="col-md-4">
                                 <h3>In Progress</h3>
                                 <div class="tasks" id="tasks_progreess">
+   @foreach($my_tasks as $task)
+                                     @if($task->task_status == 1)
+                                       <input type="hidden" id="to-do-title-{{$task->id}}" ng-model="title" value="{{$task->task_title}}" >
+                                     <input type="hidden" id="to-do-content-{{$task->id}}" ng-model="content" value="{{$task->task_content}}" >
+                                     <input type="hidden" id="to-do-due-{{$task->id}}" ng-model="due" value="{{$task->task_due}}" >
+                                     <input type="hidden" id="to-do-group-{{$task->id}}" ng-model="group" value="{{$task->task_group}}" >
+                                     <input type="hidden" id="to-do-assign-{{$task->id}}" ng-model="assign" value="{{$task->task_assign}}" >
 
+                                       <div class="task-item {{{$task->task_group}}}"   ng-click="updateModal({{$task->id}} )" data-group="{{{$task->task_group}}}" data-id="{{{$task->id}}}">
+                                            <div class="task-title"><h3>{{{$task->task_title}}}</h3></div>
+                                            <div class="task-content"><p>{{{$task->task_content}}}</p></div>
+                                             <h4 class="pull-right task-assign"><span class="label label-primary">{{{getUserName($task->task_assign,true)}}}</span></h4>
+                                            <div class="task-footer">
+                                                <div class="pull-left task-due"><span class="fa fa-clock-o"></span> {{{dateMonth($task->task_due,true)}}}</div>
+                                            </div>
+                                        </div>
+                                     @endif
+                                  @endforeach
                               @foreach($tasks as $task)
                                      @if($task->task_status == 1)
                                        <input type="hidden" id="to-do-title-{{$task->id}}" ng-model="title" value="{{$task->task_title}}" >
@@ -187,7 +204,7 @@
                                             <div class="task-content"><p>{{{$task->task_content}}}</p></div>
                                              <h4 class="pull-right task-assign"><span class="label label-primary">{{{getUserName($task->task_assign,true)}}}</span></h4>
                                             <div class="task-footer">
-                                                <div class="pull-left task-due"><span class="fa fa-clock-o"></span> {{{dateTime($task->task_due,true)}}}</div>
+                                                <div class="pull-left task-due"><span class="fa fa-clock-o"></span> {{{dateMonth($task->task_due,true)}}}</div>
                                             </div>
                                         </div>
                                      @endif
@@ -203,6 +220,24 @@
                             <div class="col-md-4">
                                 <h3>Completed</h3>
                                 <div class="tasks" id="tasks_completed">
+                                          @foreach($my_tasks as $task)
+                                     @if($task->task_status == 2)
+                                       <input type="hidden" id="to-do-title-{{$task->id}}" ng-model="title" value="{{$task->task_title}}" >
+                                     <input type="hidden" id="to-do-content-{{$task->id}}" ng-model="content" value="{{$task->task_content}}" >
+                                     <input type="hidden" id="to-do-due-{{$task->id}}" ng-model="due" value="{{$task->task_due}}" >
+                                     <input type="hidden" id="to-do-group-{{$task->id}}" ng-model="group" value="{{$task->task_group}}" >
+                                     <input type="hidden" id="to-do-assign-{{$task->id}}" ng-model="assign" value="{{$task->task_assign}}" >
+
+                                       <div class="task-item {{{$task->task_group}}}"  ng-click="updateModal({{$task->id}} )" data-group="{{{$task->task_group}}}"  data-id="{{{$task->id}}}" >
+                                         <div class="task-title" ><h3>{{{$task->task_title}}}</h3></div>
+                                            <div class="task-content"><p>{{{$task->task_content}}}</p></div>
+                                             <h4 class="pull-right task-assign"><span class="label label-primary">{{{getUserName($task->task_assign,true)}}}</span></h4>
+                                            <div class="task-footer">
+                                                <div class="task-due"><span class="fa fa-clock-o pull-left"></span> {{{dateMonth($task->task_due,true)}}}  </div>
+                                            </div>
+                                        </div>
+                                     @endif
+                                  @endforeach
                                  @foreach($tasks as $task)
                                      @if($task->task_status == 2)
                                        <input type="hidden" id="to-do-title-{{$task->id}}" ng-model="title" value="{{$task->task_title}}" >
@@ -216,7 +251,7 @@
                                             <div class="task-content"><p>{{{$task->task_content}}}</p></div>
                                              <h4 class="pull-right task-assign"><span class="label label-primary">{{{getUserName($task->task_assign,true)}}}</span></h4>
                                             <div class="task-footer">
-                                                <div class="task-due"><span class="fa fa-clock-o pull-left"></span> {{{dateTime($task->task_due,true)}}}  </div>
+                                                <div class="task-due"><span class="fa fa-clock-o pull-left"></span> {{{dateMonth($task->task_due,true)}}}  </div>
                                             </div>
                                         </div>
                                      @endif
@@ -398,6 +433,8 @@
                     },
                     success:function(data){
                         console.log(data);
+                        location.reload();
+
                         $('#myModal').modal('hide');
                         $('div').find("[data-id="+id+"]").remove();
                     }
