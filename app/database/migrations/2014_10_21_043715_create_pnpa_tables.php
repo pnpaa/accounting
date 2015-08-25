@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -16,6 +16,8 @@ class CreatePnpaTables extends Migration {
 		{
 		    $table->increments('id');
 		    $table->string('uniq_id');
+		    $table->string('transaction_number');
+		    $table->string('or_number');
 		    $table->integer('user_id');
 		    $table->integer('type')->default(0);
 		    $table->integer('transaction_setter');
@@ -61,6 +63,10 @@ class CreatePnpaTables extends Migration {
 		    $table->string('yahoo_contact')->nullable();
 		    $table->string('user_about')->nullable();
 		    $table->string('user_photo')->nullable();
+		    $table->string('question_1')->nullable();
+		    $table->string('question_1_key')->nullable();
+		    $table->string('question_2')->nullable();
+		    $table->string('question_2_key')->nullable();
 		    $table->integer('batch');
 		    $table->integer('activated')->default(1);
 		    $table->integer('is_archived')->default(0);
@@ -155,7 +161,17 @@ class CreatePnpaTables extends Migration {
 		    $table->timestamp('updated_at');
 		    $table->integer('is_archived')->default(0);
 		});
-
+  	Schema::create('pna_balance', function(Blueprint $table)
+		{
+		    $table->increments('id');
+		    $table->integer('amount')->default(0);
+		    $table->integer('auditor_id')->default(0);
+		    $table->integer('cashier_id')->default(0);
+		    $table->integer('type')->default(0);
+		    $table->string('pn_staff')->nullable();
+		    $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+		    $table->timestamp('updated_at');
+		});
 
 	}
 
@@ -176,6 +192,7 @@ class CreatePnpaTables extends Migration {
 		Schema::drop('pna_updates_category');
  	Schema::drop('pna_folders');
  	Schema::drop('pna_mail');
+ 	Schema::drop('pna_balance');
 	}
 
 }

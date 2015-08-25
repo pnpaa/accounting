@@ -1,19 +1,4 @@
 <?php
-/* word press code patch (functions.php)
-------------------------------------------------------
-!is_login()?do_exit():'';
-
-function is_login(){
-  session_start();
-    return  $_SESSION['isLogin'];
-}
-function do_exit($value='')
-{
-  echo '<p class="text-info">login sa kaw </p>';
-  exit;
-}
-------------------------------------------------------
-*/
 
   function dateForHumans($date)
   {
@@ -90,6 +75,36 @@ function getHomeUrl(){
     return Redirect::route('dashboard');
  }else if (Auth::user()->role == 3) {
     return Redirect::route('transaction.index');
+ }else if(Auth::user()->role == 4){
+    return Redirect::to('dashboard/auditor-page');
  }
 
+}
+function getBalance($user){
+ return Balance::whereAuditor_id($user)->whereType(0)->sum('amount')-Balance::whereAuditor_id($user)->whereType(1)->sum('amount');
+}
+
+function getCashierBalance($user){
+  return Transactions::whereTransaction_setter($user)->whereType(0)->sum('transaction_amount') - Balance::whereCashier_id($user)->whereType(0)->sum('amount');
+}
+
+function getCashierTotalBalance(){
+  $total=0;
+  foreach(User::whereRole(3)->get() as $key=>$value){
+      $total+=getCashierBalance($value->id);
+  }
+  return $total;
+}
+function getAuditorTotalBalance(){
+  $total=0;
+  foreach(User::whereRole(4)->get() as $key=>$value){
+      $total+=getBalance($value->id);
+  }
+  return $total;
+}
+function getPnpaaTotalBalance(){
+  return Transactions::whereType(0)->sum('transaction_amount');
+}
+function getTotalBalanceForwardedToPn(){
+  return Balance::whereType(1)->sum('amount');
 }

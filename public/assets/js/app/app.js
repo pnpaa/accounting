@@ -199,6 +199,8 @@ inquiryApp.controller('inquiryController',  function ($scope) {
             type: 'PUT',
             data:{id:id,archived:true},
             success:function(data){
+                       location.reload();
+
                     $scope.index();
              }
           });

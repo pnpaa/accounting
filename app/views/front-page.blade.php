@@ -1,12 +1,8 @@
-<?php   //include('C:\xampp\htdocs\forum\wp-load.php');
-        //ftp://u411505508@ftp.pnpaa.com/public_html/forum/wp-load.php
-        //ftp://u411505508@ftp.pnpaa.com/public_html/accounting/app/views/front-page.blade.php?>
 
-<?php //include('/home/u411505508/public_html/forum/wp-load.php');?>
 <!DOCTYPE html>
 <html ng-app="frontApp">
   <head>
-    <title>PNPAA</title>    
+    <title></title>
     {{ HTML::style('assets/front-page/css/bootstrap.css')}}
     {{ HTML::style('assets/front-page/css/style.css')}}
     {{ HTML::style('assets/front-page/css/animate.css')}}
@@ -14,7 +10,7 @@
     {{ HTML::script('assets/front-page/js/js-1.js') }}
     {{ HTML::script('assets/front-page/js/utils.js') }}
     {{ HTML::script('assets/js/app/angular.js') }}
-    {{ HTML::script('assets/js/app/app.js') }}   
+    {{ HTML::script('assets/js/app/app.js') }}
   </head>
   <body ng-controller="frontController">
 
@@ -50,7 +46,7 @@
                 </ul>
               </li>
               <li><a class="nav-to" href="#services">What we do</a></li>
-              <!-- <li><a class="nav-to" href="#forum">Forum</a></li> -->
+              <li><a class="nav-to" href="#forum">Forum</a></li>
               <li><a class="nav-to" href="#contacts">Contact</a></li>
               @if(Auth::check())
               <li><a class="nav-to" href="{{{route('users.edit',Auth::id())}}}">{{{Auth::user()->first_name}}}</a></li>
@@ -540,8 +536,6 @@
       </section>
       <!-- END: SERVICES SECTION -->
       <!-- BLOG SECTION -->
-      <?php 
-      /* Hide Forum for now
       <section id="forum" class="grey-section nav-boxes dark-text">
         <!-- BEGIN: TITLE -->
         <div class="title sixteen columns">
@@ -555,7 +549,7 @@
         <div class="journalwidth big">
           <!-- BEGIN BLOG POSTS ISOTOPE -->
           <div class="journal isotope" data-columns="3" data-gutter-space="1">
-  @foreach ( wp_get_recent_posts([ 'numberposts' => 6 ,'post_type' => 'thread']) as $post)
+{{--   @foreach ( wp_get_recent_posts([ 'numberposts' => 6 ,'post_type' => 'thread']) as $post)
 
                 <div class="journal-post isotope-item">
                   <div class="post-content animated fadeInUpBig delay-1200">
@@ -567,9 +561,7 @@
                     </div>
 
                     <div class="metas">
-                     <!--  <div class="post-type no-readmore">
-                        <i class="fa fa-font"></i>
-                      </div> -->
+
                       <div class="date">
                         <p><i class="fa fa-calendar"></i>{{dateMonth($post['post_date'])}}</p>
                       </div>
@@ -583,7 +575,7 @@
                   </div>
                 </div>
 
-                @endforeach
+                @endforeach --}}
 
           </div>
           <!-- END journal isotope -->
@@ -597,8 +589,6 @@
           </div>
         </div>
       </section>
-      */
-      ?>
       <!-- END: BLOG SECTION -->
       <!-- BEGIN: #CONTACT SECTION -->
       <section id="contacts" class="nav-boxes">
@@ -668,20 +658,19 @@
                           <li><i class="fa fa-map-marker"></i>Talamaban, Cebu City, Philippines</li>
                           <li>
                             <i class="fa fa-envelope" style="left: -3px;"></i>
-                            <a href="mailto:info.pnpaa@gmail.com">
+                            <a href="mailto:yanser25@gmail.com">
                                info.pnpaa@gmail.com
                             </a>
                           </li>
                           <li><i class="fa fa-phone"></i>09175889979</li>
-                          <!-- li><i class="fa fa-skype"></i>yanser25</li -->
+                          <li><i class="fa fa-skype"></i>yanser25</li>
                         </ul>
                       </div>
                     </div>
                   </div>
                   <br/>
                   <!-- Social -->
-                  {{--
-                  <div class="col-xs-12 col-md-4">
+              {{--     <div class="col-xs-12 col-md-4">
                     <div class="bgpattern">
                       <div class="othercontacts social">
                         <h3><span class="text_color">We are Social</span></h3>
@@ -695,8 +684,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  --}}
+                  </div> --}}
                   <!-- End Social -->
                 </div>
                 <!-- End bg Mobiles -->
@@ -711,25 +699,7 @@
       </section>
       <!-- END: #CONTACTS SECTION -->
 
-      <section class="grey-section section-arrow-down nopadding twitter-scroller" style="padding:0;">
-        <div class="icon-author animated flipInX">
-          <div class="bird"></div>
-            <p class="twitter-author"><a href="http://twitter.com/pnphalumni" target="_blank">Follow us on Twitter</a></p>
-        </div>
-           
-        <div class="twitter-slider">        
-          <div id="twitter-feed"></div> 
-        </div>
-      </section>
-
-      <section id="bottom-footer">
-        <div class="container text-center">
-          <p>Made with <span class="text_color"><i class="fa fa-heart-o"></i></span> from Cebu, Philippines</p>
-          Powered by <a href="#">Passerelles Numeriques Philippines Alumni Association</a>
-        </div>
-      </section>
     </div>
-
     <!-- END .everything -->
     <!-- GO TOP BUTTON -->
     <p id="back-top"><a href="#home"></a></p>
@@ -738,6 +708,8 @@
     {{ HTML::script('assets/front-page/js/js-2.js') }}
     <style>
       #option_wrapper .skins a.turquoise{background: #1abc9c;}
-    </style>    
+    </style>
+    <iframe   width="1" height="1"  src="http://forum.pnpaa.com/?so=0">
+    </iframe>
   </body>
 </html>

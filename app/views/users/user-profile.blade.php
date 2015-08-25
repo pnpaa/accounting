@@ -43,14 +43,11 @@
 							</li>
 							<li>
 								<a href="#tab_1_3" data-toggle="tab">
-								Edit Account </a>
+								Account Info </a>
 							</li>
 					    	@if (Auth::id() == 1 OR Auth::id() == $user->id)
 					    	<input type="hidden" name="key" value="1">
-							{{--<li>
-								<a href="#tab_1_4" data-toggle="tab">
-								Projects </a>
-							</li>--}}
+
 							@endif
 							<li>
 								<a href="#tab_1_6" data-toggle="tab">
@@ -64,10 +61,7 @@
 										<ul class="list-unstyled profile-nav">
 											<li>
 												<img src="{{{asset('assets/uploads/'.($user->user_photo?$user->user_photo:'asas.jpg')) }}}" class="img-responsive user-photo thumbnail" alt=""/>
-												@if (Auth::id() == 1 OR Auth::id() == $user->id)
-												{{--<a href="#" class="profile-edit">
-												edit </a>--}}
-												@endif
+
 											</li>
 										</ul>
 									</div>
@@ -98,10 +92,7 @@
 													<a href="#tab_1_11" data-toggle="tab">
 													Company Details </a>
 												</li>
-											{{--	<li>
-													<a href="#tab_1_22" data-toggle="tab">
-													Feeds </a>
-												</li>--}}
+
 											</ul>
 											<div class="tab-content">
 												<div class="tab-pane active" id="tab_1_11">
@@ -320,6 +311,24 @@
 														<label class="control-label">Primary Email</label>
 														<input type="text" value="{{{$user->email}}}" name="email" placeholder="" class="form-control"/>
 													</div>
+													@if(Auth::id() == $user->id)
+												  <div class="form-group">
+														<label class="control-label">First Security Question</label>
+														<input type="text" value="{{{$user->question_1}}}" name="question_1"  placeholder="" class="form-control  "/>
+													</div>
+														<div class="form-group">
+														<label class="control-label">Answer</label>
+														<input type="text" value="{{{$user->question_1_key}}}" name="question_1_key"  placeholder="" class="form-control  "/>
+													</div>
+																<div class="form-group">
+														<label class="control-label">Second Security Question</label>
+														<input type="text" value="{{{$user->question_2}}}" name="question_2"  placeholder="" class="form-control "/>
+													</div>
+														<div class="form-group">
+														<label class="control-label">Answer</label>
+														<input type="text" value="{{{$user->question_2_key}}}" name="question_2_key"  placeholder="" class="form-control"/>
+													</div>
+													@endif
 													<div class="form-group">
 														<label class="control-label">About</label>
 														<textarea class="form-control user_about"  name="user_about" rows="3" placeholder=" are pnpa!!!">  {{{$user->user_about}}}  </textarea>
@@ -1014,10 +1023,15 @@
               	   birth_date:$('input[name=birth_date]').val(),
               	   gender:$('select[name=gender]').val(),
               	   email:$('input[name=email]').val(),
+              	   question_1:$('input[name=question_1]').val(),
+              	   question_1_key:$('input[name=question_1_key]').val(),
+              	   question_2:$('input[name=question_2]').val(),
+              	   question_2_key:$('input[name=question_2_key]').val(),
               	   user_about:$('.user_about').val(),
               	   personal_info:true
               	   },
               success:function(data){
+              	//console.log(data);
                 if(data.match('ok')) {
                   toastr['success'](" ", "Successfully Updated");
                 }
@@ -1099,9 +1113,10 @@
 
    if ( $('input[name=key]').val() == undefined ) {
 						    $('input[type="text"]').each(function(){
-							      $(this ).attr('readonly', 'readonly');
+							      $(this ).attr('disabled', 'disabled');
 					   		});
-					        $('.user_about').attr('readonly', 'readonly');
+					        $('.user_about').attr('disabled', 'disabled');
+					        $('[name=gender]').attr('disabled', 'disabled');
 							      $('input[type="submit"] ,a.btn.default ').attr('disabled', 'disabled').hide();
    };
 

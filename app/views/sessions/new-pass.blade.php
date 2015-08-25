@@ -12,7 +12,7 @@
   <form   action="new-pass"  id="new-pass-form" method="post">
     {{Form::token()}}
 
-    <h3>Security Guard</h3>
+    <h3>Security Question</h3>
     <p>
       Create new password
     </p>

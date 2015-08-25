@@ -26,8 +26,7 @@ return array(
 	|
 	*/
 
-	/*'url' => 'http://www.pnpaa.io',*/
-	'url' => 'http://www.pnpaa.io',
+	'url' => 'http://localhost',
 
 	/*
 	|--------------------------------------------------------------------------

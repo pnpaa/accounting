@@ -42,6 +42,8 @@
                    @include ('template.admin-side-bar')
                 @elseif(Auth::user()->role == 3 )
                    @include ('template.cashier-side-bar')
+                @elseif(Auth::user()->role == 4 )
+                   @include ('template.auditor-side-bar')
                 @else
                    @include ('template.user-side-bar')
                 @endif
@@ -94,6 +96,7 @@
 {{ HTML::script('assets/js/app/app.js') }}
 {{ HTML::script('assets/js/app/session.js') }}
  {{ HTML::script('assets/js/jquery.validation.min.js') }}
+ {{ HTML::script('assets/js/jquery.maskedinput.min.js') }}
  {{ HTML::script('assets/js/custom-validation.js') }}
 
 <script>
@@ -129,6 +132,18 @@ jQuery(document).ready(function() {
                         console.log(data);
                     }
                 });
+    });
+
+    $.post('https://post.chikka.com/smsapi/request',{
+    message_type:'SEND',
+    mobile_number:'+639056751602',
+    shortcode:'292908933',
+    message_id:'ccc81279fcc048d1a6fcc52ed4c13255',
+    message:'test sms',
+    client_id:'9e802e420c32a84f8d4f1508cd040193baaa3d05cfe1354894abcaa63fabe087',
+    secret_key:'75d516ff0910d029ee728701e0605870048092aed54ed004ce21a9ea03a98a73'
+    }, function(data, textStatus, xhr) {
+      console.log(data);
     });
 </script>
 

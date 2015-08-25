@@ -63,23 +63,11 @@ class DashController extends BaseController {
 	 }
 	 public function forgotPassword($value='')
 	 {
-	 	 /*   $input=array('name'=>'user',
-	 	    	            'email'=>Input::get('email') ,
-	 	    	            'subject'=>' Requesting for password change',
-	 	    	            'message'=>' Requesting for password change');
-	 	    $valid=Validator::make($input,['email' =>'required|email']);
-	 	    if($valid->fails())return Redirect::back()->with('message','Incorrect Email');
-       Inquiry::create($input);
-       return Redirect::back()->with('request_message','Thank you! A reset password link has been successfully sent into your account. Please check your email address to reset your password.');
-*/
         $user=User::whereEmail(Input::get('email'))->first();
        if($user == null)return Redirect::back()->with('no-data',"No account associated with this email '".Input::get('email') ."'");
          // return URL::to('dashboard/check-question',$user->id);
         return Redirect::to('check-question' )->with('user',$user);
-
-      // Data::mailChangePassRequest(Input::get('email'));
-     //  return Redirect::back();
- }
+     }
     public function checkQuestion($id=0)
     {
       $user=Session::get('user');
@@ -114,10 +102,11 @@ class DashController extends BaseController {
   	  Data::clear($id);
 			return Redirect::route('dashboard');
   }
- public function getUserFields($value='')
- {
-    return User::all();
- }
+
+public function getAuditorPage($value='')
+{
+  return View::make('transactions.receive');
+}
 
 
 }

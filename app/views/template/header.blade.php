@@ -5,7 +5,7 @@
     <div class="page-header-inner">
         <!-- BEGIN LOGO -->
         <div class="page-logo ">
-            <a href="{{route('dashboard')}}">
+            <a href="{{URL::to('/')}}">
             <img src="{{asset('assets/front-page/images/pnpaa-logo-small.png')}}" alt="logo" class="logo-default hatch"/>
             </a>
             <div class="menu-toggler sidebar-toggler">
@@ -46,7 +46,7 @@
                                     </span>
                                      {{($v->update_title)}}
                                      <span class="time">
-                                    {{{ dateForHumans($v->created_at)}}} </span>
+                                    {{{ dateMonth($v->created_at)}}} </span>
                                     </a>
                                 </li>
                                 @endforeach

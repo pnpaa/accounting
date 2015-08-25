@@ -42,7 +42,7 @@ class SettingsController extends \BaseController {
           $resp = recaptcha_check_answer ($privatekey,$_SERVER["REMOTE_ADDR"],Input::get('recaptcha_challenge_field'),Input::get('recaptcha_response_field'));
     	  if (!$resp->is_valid) {
 				    // What happens when the CAPTCHA was entered incorrectly
-				   return  Redirect::route('settings.index')->with(['error'=>'Captcha Mismatched']);
+	 //	    return  Redirect::route('settings.index')->with(['error'=>'Captcha Mismatched']);
 				  }
         $input=Input::only('_token','transaction_amount','transaction_purpose');
         $input['type']=1;

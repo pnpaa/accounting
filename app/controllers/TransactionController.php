@@ -50,7 +50,7 @@ class TransactionController extends BaseController {
           $resp = recaptcha_check_answer ($privatekey,$_SERVER["REMOTE_ADDR"],Input::get('recaptcha_challenge_field'),Input::get('recaptcha_response_field'));
     	  if (!$resp->is_valid) {
 		    // What happens when the CAPTCHA was entered incorrectly
-		  return  Redirect::route('transaction.create')->with(['error'=>'Captcha Mismatched']);
+		  //return  Redirect::route('transaction.create')->with(['error'=>'Captcha Mismatched']);
 		  }
 		//return dd(Auth::user()->id);
 		$input=Input::only('transaction_date','transaction_amount','transaction_purpose','user_id');
@@ -59,6 +59,8 @@ class TransactionController extends BaseController {
 
         $input['transaction_setter']=Auth::id();
         $input['uniq_id']=$this->transaction->find($input['transaction_purpose'])->uniq_id;
+        $input['transaction_number']=rand().rand().rand();
+        $input['or_number']=rand().rand().rand();
         $input['transaction_purpose']=  $this->transaction->find($input['transaction_purpose'])->transaction_purpose;
        // $this->transaction->create($input);
         Data::mail($this->transaction->create($input));
@@ -114,6 +116,29 @@ class TransactionController extends BaseController {
 			})->export('csv');
 
 			}
-
+      public function getReceive($value='')
+      {
+      return View::make('transactions.receive');
+      }
+      public function postReceive($value='')
+      {
+        $input=Input::only('amount','cashier_id');
+        $input['auditor_id']=Auth::id();
+        $input['type']=0;
+        Balance::create($input);
+        return Redirect::back()->with(['message'=>'Successfully Received']);
+      }
+      public function getForward($value='')
+      {
+      return View::make('transactions.forward');
+      }
+      public function postFOrward($value='')
+      {
+        $input=Input::only('amount','pn_staff');
+         $input['auditor_id']=Auth::id();
+        $input['type']=1;
+         Balance::create($input);
+        return Redirect::back()->with(['message'=>'Successfully Forward To PN']);
+      }
 
 }

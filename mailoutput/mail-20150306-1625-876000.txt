@@ -1,0 +1,59 @@
+To: amsh@hajs
+Subject: PNPAA Receipt
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: Pnpaa <asasdev@pnpaa.com>
+
+
+	<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style type="text/css">
+  .receipt{padding: 20px;border: 10px solid rgb(51,204,204); margin: 5px;}
+</style>
+</head>
+<body>
+<div class="col-md-4 receipt" style="padding: 20px;border: 10px solid rgb(51,204,204); margin: 5px;">
+  <div class="row">
+     <div class="col-md-6">
+      <img src="http://localhost:8000/assets/front-page/images/pnpaa-logo-small.png" alt="logo">
+    </div>
+    <div class="col-md-6">
+      <p>Date : 06 Mar   2015  </p>
+    </div>
+    <div class="col-md-12">
+      <p>Payee : Test1, User2013 </p>
+      <p>Received From :dev, asas </p>
+      <p>On :  06 Mar   2015  </p>
+    </div>
+    <div class="col-md-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td> Solidarity Act 2</td>
+            <td>Php 550.00 </td>
+          </tr>
+          <tr>
+            <td colspan="2">TOTAL</td>
+            <td>Php 550.00 </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6 col-md-offset-6">
+      <p>Recorded by :  dev, asas </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+			

@@ -4,6 +4,8 @@
 {{HTML::style('assets/dashboard/global/plugins/select2/select2.css')}}
 {{HTML::style('assets/dashboard/global/css/components.css')}}
 {{HTML::style('assets/dashboard/global/css/plugins.css')}}
+    {{HTML::style('assets/dashboard/global/plugins/bootstrap-datepicker/css/datepicker3.css')}}
+
 @stop
 
 @section('content')
@@ -199,11 +201,11 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="control-label col-md-3">Birth Date <span class="required">
+													<label class="control-label col-md-3  ">Birth Date <span class="required">
 													* </span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="birth_date"/>
+														<input type="text" class="form-control date-picker" name="birth_date"/>
 														<span class="help-block">
 														Provide your birth date</span>
 													</div>
@@ -372,7 +374,7 @@
 												<div class="form-group">
 													<label class="control-label col-md-3">Birth Date   :</label>
 													<div class="col-md-4">
-														<p class="form-control-static" data-display="birth_date">
+														<p class="form-control-static date" data-display="birth_date">
 														</p>
 													</div>
 												</div>
@@ -481,6 +483,8 @@
  {{ HTML::script('assets/dashboard/admin/layout/scripts/layout.js') }}
  {{ HTML::script('assets/dashboard/admin/pages/scripts/form-wizard.js') }}
  {{ HTML::script('assets/dashboard/admin/pages/scripts/components-dropdowns.js') }}
+{{ HTML::script('assets/dashboard/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}
+
  <script>
         jQuery(document).ready(function() {
         	 Metronic.init(); // init metronic core componets
@@ -488,5 +492,13 @@
 			       FormWizard.init();
           ComponentsDropdowns.init();
         });
+          if (jQuery().datepicker) {
+       $('.date-picker').datepicker({
+           rtl: Metronic.isRTL(),
+           orientation: "left",
+           autoclose: true
+       });
+
+   }
  </script>
 @stop

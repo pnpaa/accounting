@@ -57,6 +57,8 @@
                    @include ('template.admin-side-bar')
                 @elseif(Auth::user()->role == 3 )
                    @include ('template.cashier-side-bar')
+                @elseif(Auth::user()->role == 4 )
+                   @include ('template.auditor-side-bar')
                 @else
                    @include ('template.user-side-bar')
                 @endif

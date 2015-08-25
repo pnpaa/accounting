@@ -182,8 +182,6 @@ public function usersNotPaid()
   return    array_map("unserialize", array_unique(array_map("serialize", $debt)));
 
 }
-//array(3) { [0]=> int(3) [1]=> int(7) [2]=> int(7) }
-
 
 }
 

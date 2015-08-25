@@ -52,7 +52,7 @@ class NotificationsController extends \BaseController {
 	{
 		 $input=Input::only('un_archived','id','archived');
 
-		 $inquiry=$this->inquires->find( (int) $id );
+		 $inquiry=$this->inquires->find( (int) $input['id'] );
 		 if($input['un_archived']){
        Data::update($inquiry,['is_archived'=>0]);
 		 }else if($input['archived']){

@@ -45,6 +45,7 @@ class UserController extends BaseController {
       $input=Input::only('batch','committee','username','password','role','email','first_name','last_name','maidden_name','gender','birth_date','work','company_working','company_working_hours','company_working_address','permanent_address','current_address','phone_contact','skype_contact','facebook_contact','linked_contact','twitter_contact','google_contact','yahoo_contact','user_about','user_photo');
       $input['password']=Hash::make($input['password']);
       $input['role']= (int)$input['role'];
+      $input['birth_date']=date_format(new DateTime($input['birth_date']),'Y-m-d');
       $user= $this->user->create($input);
       return Redirect::route('users.index');
 	}
@@ -91,9 +92,13 @@ class UserController extends BaseController {
 																		'current_address'  => $input['current_address'],
 																		'permanent_address'=> $input['permanent_address'],
 																		'gender'           => $input['gender'],
-																		'email'           => $input['email'],
+																		'email'            => $input['email'],
+																		'question_1'       => $input['question_1'],
+																		'question_1_key'   => $input['question_1_key'],
+																		'question_2'       => $input['question_2'],
+																		'question_2_key'   => $input['question_2_key'],
 																		'user_about'       => $input['user_about'],
-																		'birth_date'       => $input['birth_date']
+																		'birth_date'       => date_format(new DateTime($input['birth_date']),'Y-m-d')
 														             ));
 
 		   }

@@ -2,7 +2,7 @@
 	class Transactions extends Eloquent {
 
 	 public $timestamps=false;
-	 protected $fillable=array('uniq_id','is_archived','transaction_date','transaction_amount','transaction_purpose','type','user_id','transaction_setter');
+	 protected $fillable=array('or_number','transaction_number','uniq_id','is_archived','transaction_date','transaction_amount','transaction_purpose','type','user_id','transaction_setter');
 	 protected $table = 'pna_transactions';
 
 	    public function scopeBelongsToUser($query)
